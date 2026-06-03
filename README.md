@@ -84,7 +84,8 @@ O sensor TMP36 monitora a temperatura do ambiente.
 
 | Temperatura | Status |
 |------------|---------|
-| Até 50°C | Normal |
+| Abaixo de -10°C | Emergência (Frio Extremo) |
+| -10°C até 50°C | Normal |
 | 51°C a 80°C | Atenção |
 | Acima de 80°C | Emergência |
 
@@ -134,7 +135,7 @@ O nível da água é simulado através de um potenciômetro.
 
 - LED Vermelho aceso
 - Buzzer permanece ativo continuamente
-- LCD exibe o tipo de risco identificado
+- LCD exibe o tipo de risco identificado (queimada, fumaça intensa, enchente ou frio extremo)
 
 ---
 

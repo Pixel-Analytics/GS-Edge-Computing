@@ -154,6 +154,8 @@ void loop()
   // CLASSIFICAÇÃO
   // ==========================
 
+  bool frioExtremo = temperatura <= -10;
+
   bool incendioEmergencia = temperatura > 80;
   bool incendioAtencao = temperatura > 50 && temperatura <= 80;
 
@@ -167,7 +169,7 @@ void loop()
   // EMERGÊNCIA
   // ==========================
 
-  if (incendioEmergencia || enchenteEmergencia || fumacaEmergencia)
+  if (frioExtremo || incendioEmergencia || enchenteEmergencia || fumacaEmergencia)
   {
     digitalWrite(LED_VERMELHO, HIGH);
 
@@ -184,7 +186,12 @@ void loop()
 
     lcd.setCursor(0, 1);
 
-    if (fumacaEmergencia)
+    if (frioExtremo)
+    {
+      lcd.print("FRIO EXTREMO");
+      Serial.println("TEMPERATURA ABAIXO DE -10C");
+    }
+    else if (fumacaEmergencia)
     {
       lcd.print("RISCO INCENDIO");
       Serial.println("FUMACA INTENSA");
